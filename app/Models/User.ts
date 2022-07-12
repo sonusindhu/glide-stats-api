@@ -3,7 +3,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
-  @column({ isPrimary: true })h
+  @column({ isPrimary: true })
   public id: number
 
   @column()
@@ -14,6 +14,27 @@ export default class User extends BaseModel {
 
   @column()
   public lastName: string
+
+  @column()
+  public fullName: string
+
+  @column()
+  public jobName: string
+
+  @column()
+  public location: string
+
+  @column()
+  public department: string
+
+  @column()
+  public phoneNumber: string
+
+  @column()
+  public extension: string
+
+  @column()
+  public image: string
 
   @column({ serializeAs: null })
   public password: string
