@@ -19,7 +19,7 @@ export default class User extends BaseModel {
   public fullName: string
 
   @column()
-  public jobName: string
+  public jobTitle: string
 
   @column()
   public location: string
