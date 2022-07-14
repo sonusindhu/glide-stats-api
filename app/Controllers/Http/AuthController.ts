@@ -10,6 +10,14 @@ export default class AuthController {
     })
     return token.toJSON()
   }
+
+  public async logout({ auth, response }: HttpContextContract) {
+    await auth.use('jwt').revoke()
+    return {
+      revoked: true,
+    }
+  }
+
   public async register({ request, auth }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')

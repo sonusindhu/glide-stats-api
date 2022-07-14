@@ -30,7 +30,8 @@
       "@adonisjs/repl",
       "@japa/preset-adonis/build/adonis-typings",
       "@adonisjs/auth",
-      "adonis5-jwt"
+      "adonis5-jwt",
+      "@adonisjs/lucid"
     ]
   }
 }
