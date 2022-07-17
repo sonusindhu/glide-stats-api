@@ -22,6 +22,7 @@ export default class AuthController {
     const firstName = request.input('firstName')
     const lastName = request.input('lastName')
     const newUser = new User()
+    newUser.type = 1
     newUser.email = request.input('email')
     newUser.password = request.input('password')
     newUser.firstName = request.input('firstName')
@@ -37,6 +38,6 @@ export default class AuthController {
     // const token = await auth.use('api').login(newUser, {
     //   expiresIn: '10 days',
     // })
-    // return token.toJSON()
+    // return token.toJSON();
   }
 }
