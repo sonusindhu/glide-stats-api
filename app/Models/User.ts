@@ -22,22 +22,22 @@ export default class User extends BaseModel {
   public fullName: string
 
   @column()
-  public jobTitle: string
+  public jobTitle: string | null
 
   @column()
-  public location: string
+  public location?: string
 
   @column()
-  public department: string
+  public department?: string
 
   @column()
-  public phoneNumber: string
+  public phoneNumber?: string
 
   @column()
-  public extension: string
+  public extension?: string
 
   @column()
-  public image: string
+  public image?: string
 
   @column({ serializeAs: null })
   public password: string
