@@ -7,6 +7,9 @@ export default class User extends BaseModel {
   public id: number
 
   @column()
+  public type: number // 1: SuperAdmin, 2: Admin, 3: Teacher, 4: Student
+
+  @column()
   public email: string
 
   @column()

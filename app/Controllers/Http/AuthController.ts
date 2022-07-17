@@ -18,31 +18,25 @@ export default class AuthController {
     }
   }
 
-  public async register({ request, auth }: HttpContextContract) {
-    const email = request.input('email')
-    const password = request.input('password')
+  public async register({ request }: HttpContextContract) {
     const firstName = request.input('firstName')
     const lastName = request.input('lastName')
-    const jobTitle = request.input('jobTitle')
-    const department = request.input('department')
-    const phoneNumber = request.input('phoneNumber')
-    const extension = request.input('extension')
-    const location = request.input('location')
     const newUser = new User()
-    newUser.email = email
-    newUser.password = password
-    newUser.firstName = firstName
-    newUser.lastName = lastName
+    newUser.email = request.input('email')
+    newUser.password = request.input('password')
+    newUser.firstName = request.input('firstName')
+    newUser.lastName = request.input('lastName')
     newUser.lastName = `${firstName} ${lastName}`
-    newUser.jobTitle = jobTitle
-    newUser.department = department
-    newUser.phoneNumber = phoneNumber
-    newUser.extension = extension
-    newUser.location = location
+    newUser.jobTitle = request.input('jobTitle')
+    newUser.department = request.input('department')
+    newUser.phoneNumber = request.input('phoneNumber')
+    newUser.extension = request.input('extension')
+    newUser.location = request.input('location')
     await newUser.save()
-    const token = await auth.use('api').login(newUser, {
-      expiresIn: '10 days',
-    })
-    return token.toJSON()
+    return newUser
+    // const token = await auth.use('api').login(newUser, {
+    //   expiresIn: '10 days',
+    // })
+    // return token.toJSON()
   }
 }
