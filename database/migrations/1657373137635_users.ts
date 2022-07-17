@@ -6,7 +6,7 @@ export default class UsersSchema extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
-      table.tinyint('type').notNullable().defaultTo(1)
+      table.integer('type').unsigned().notNullable().defaultTo(4)
       table.string('email', 255).notNullable()
       table.string('firstName', 255).notNullable()
       table.string('lastName', 255).notNullable()
@@ -23,10 +23,10 @@ export default class UsersSchema extends BaseSchema {
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.timestamp('created_at', { useTz: true }).notNullable()
-      table.timestamp('updated_at', { useTz: true }).notNullable()
+      table.datetime('created_at', { useTz: true }).notNullable()
+      table.datetime('updated_at', { useTz: true }).notNullable()
 
-      table.boolean('status').notNullable().defaultTo(true)
+      table.integer('status').unsigned().notNullable().defaultTo(1)
     })
   }
 
