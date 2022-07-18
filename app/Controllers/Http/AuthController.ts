@@ -5,7 +5,7 @@ export default class AuthController {
   public async login({ request, auth }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')
-    const token = await auth.use('api').attempt(email, password, {
+    const token = await auth.use('jwt').attempt(email, password, {
       expiresIn: '10 days',
     })
     return token.toJSON()
@@ -18,7 +18,9 @@ export default class AuthController {
     }
   }
 
-  public async register({ request }: HttpContextContract) {
+  public async register({ request, response }: HttpContextContract) {
+    // console.log(request)
+    // return request.body()
     const firstName = request.input('firstName')
     const lastName = request.input('lastName')
     const newUser = new User()
@@ -33,6 +35,7 @@ export default class AuthController {
     newUser.phoneNumber = request.input('phoneNumber')
     newUser.extension = request.input('extension')
     newUser.location = request.input('location')
+    newUser.status = 1
     await newUser.save()
     return newUser
     // const token = await auth.use('api').login(newUser, {

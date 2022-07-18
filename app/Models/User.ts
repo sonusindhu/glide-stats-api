@@ -52,7 +52,7 @@ export default class User extends BaseModel {
   public updatedAt: DateTime
 
   @column()
-  public status: boolean
+  public status: number
 
   @beforeSave()
   public static async hashPassword(user: User) {
