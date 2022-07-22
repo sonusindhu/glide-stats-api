@@ -69,4 +69,8 @@ export default class AuthController {
     // })
     // return token.toJSON();
   }
+
+  public async reset({ request, response }: HttpContextContract) {
+    console.log(request, response)
+  }
 }
