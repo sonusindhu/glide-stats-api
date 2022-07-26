@@ -4,4 +4,5 @@ Route.post('/auth/login', 'AuthController.login')
 Route.post('/auth/register', 'AuthController.register')
 Route.post('/auth/logout', 'AuthController.logout')
 
-Route.post('/auth/reset', 'AuthController.reset')
+Route.post('/auth/resetpassword', 'AuthController.resetpassword')
+Route.post('/auth/updatepassword', 'AuthController.updatepassword')

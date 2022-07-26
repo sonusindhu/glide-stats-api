@@ -70,7 +70,11 @@ export default class AuthController {
     // return token.toJSON();
   }
 
-  public async reset({ request, response }: HttpContextContract) {
+  public async updatepassword({ request, response }: HttpContextContract) {
+    console.log(request, response)
+  }
+
+  public async resetpassword({ request, response }: HttpContextContract) {
     console.log(request, response)
   }
 }
